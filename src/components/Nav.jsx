@@ -8,7 +8,7 @@ import SideMenu from './SideMenu';
 function Nav() {
     const [nav, setNav] = useState(false);
     const [scrolledNav , setScrollNav] = useState(false);
-
+    
     function scrolled(){
             if(window.scrollY >= 20){
                 setScrollNav(true)

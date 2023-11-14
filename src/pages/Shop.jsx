@@ -1,7 +1,7 @@
 
 import AddToCart from '../components/ShoppingPage/AddToCart.jsx';
-import FeaturedProd from "../components/FeaturedProdSect/FeaturedProd";
-import NewsLetter from "../components/NewsLetter";
+import FeaturedProd from "../components/FeaturedProdSect/FeaturedProd.jsx";
+import NewsLetter from "../components/NewsLetter.jsx";
 
 
 function Shop() {
