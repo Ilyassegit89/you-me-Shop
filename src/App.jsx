@@ -6,7 +6,6 @@ import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
 import {ProductProvider} from './assets/context/ProductContext';
 import {DataProvider} from "./assets/context/Products_context.jsx";
-import {AddToCartContProv} from "./assets/context/AddtoCartCont.jsx";
 
 
 import {Route, Routes} from 'react-router-dom'
@@ -29,9 +28,7 @@ function App() {
                       } />
 
                 <Route path="/Cart" element={
-                  <AddToCartContProv>
-                       <Cart />
-                  </AddToCartContProv>
+                  <Cart />
                   } />
 
             </Routes>

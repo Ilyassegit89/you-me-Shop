@@ -1,25 +1,15 @@
 import {useEffect, useState} from "react";
 import {useProductContext} from "../assets/context/ProductContext.jsx";
-import {useAddToCartCont} from "../assets/context/AddtoCartCont.jsx";
 
-
-export default function ProductsCart({title, price, image, product}){
+export default function ProductsCart({title, price, image, product, increment, decrement, quantity, category}){
     const {removeFromCarts} = useProductContext();
-    const {increment, quantity, decrement, TotalProduct, sett} = useAddToCartCont();
+    const totalPrice = (product.price * quantity).toFixed(2);
     
-    const [TotalPrice, setTotalPrice]= useState(TotalProduct);
+    const handleClick = () => {
+        removeFromCarts(product.id)
+    }
 
-     const handleClick = () => {
-        removeFromCarts(product.id);
-    } 
-    useEffect(() => {
-        sett(TotalProduct * quantity)
-        //setTotalPrice(TotalProduct * quantity);
-            //setprice(price * quantity)
-    }, [quantity])
-
-    return(
-                
+    return(       
              <>
                      <div className="h-[150px] w-[150px]">
                         <img src={image} className="w-full h-full rounded-lg" alt={title}/>
@@ -28,7 +18,7 @@ export default function ProductsCart({title, price, image, product}){
                         <div className="flex justify-between">
                         <div className="flex flex-col">
                             <h1 className="text-3xl font-medium">{title}</h1>
-                            <span className="font-medium text-2xl text-gray-300">Category</span>
+                            <span className="font-medium text-2xl text-gray-300">{category}</span>
 
                         </div>
                         <div className="flex items-end space-x-4">
@@ -55,9 +45,11 @@ export default function ProductsCart({title, price, image, product}){
                         </div>
                     </div>
                     <div className="flex flex-col items-end">
-                        <span className="font-medium text-2xl" >{TotalPrice}$</span>
+                        <span className="font-medium text-2xl" >{totalPrice}$</span>
 
-                        <button className="text-red-500 underline" onClick={handleClick}>Remove item</button>
+                        <button className="text-red-500 underline"
+                        onClick={handleClick}
+                         >Remove item</button>
                         
                     </div>     
                     
