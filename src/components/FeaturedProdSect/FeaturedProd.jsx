@@ -9,7 +9,7 @@ import {PiStarFourFill} from "react-icons/pi"
 export default function FeaturedProd() {
     const cards = FeaturedProdData.map(
         card => {
-            return <FeauturedWrrapers key={card.id} image={card.img} />
+            return <FeauturedWrrapers product={card} key={card.id} image={card.image} title={card.title} price={card.price}/>
         }
     )
     

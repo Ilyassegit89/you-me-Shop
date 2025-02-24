@@ -1,19 +1,22 @@
 
-import AddToCart from '../components/ShoppingPage/AddToCart.jsx';
-import FeaturedProd from "../components/FeaturedProdSect/FeaturedProd.jsx";
 import NewsLetter from "../components/NewsLetter.jsx";
+import Filters from "../components/filters"
+import ProductsList from "../components/ProductsList";
 
-
-function Shop() {
-  return (
+function Shop(){
+  return(
     <>
-      <AddToCart />
-      <FeaturedProd />
-      <NewsLetter />
-      
+    <div className="max-w-[1200px] mx-auto ">
+          <div className="grid md:grid-cols-[1fr_3fr] py-4">
+                    <Filters />
+                    <ProductsList />
+              
+          </div>
+        </div>
+        <NewsLetter />
+        
     </>
-  );
-
-
+    
+  )
 }
 export default  Shop;

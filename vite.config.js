@@ -11,7 +11,9 @@ export default defineConfig({
   },
   plugins: [
     
-    reactRefresh(),
+    reactRefresh({
+      include: /\.(js|jsx|ts|tsx)$/, // Add this line to process .js files as JSX
+    }),
     svgrPlugin({
       svgrOptions: {
         icon: true,
@@ -19,5 +21,8 @@ export default defineConfig({
       },
     }),
   ],
+  server: {
+    port: 5173, // Change this to your desired port
+  },
   
 });

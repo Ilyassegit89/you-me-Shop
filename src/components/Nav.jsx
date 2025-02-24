@@ -51,7 +51,8 @@ function Nav() {
             </li>
         </ul>
         <div className='flex gap-4'>
-        <AiOutlineShopping className='cursor-pointer hover:text-[#2c698d]' size={30}/>
+        <NavLink to="/Cart"><AiOutlineShopping className='cursor-pointer hover:text-[#2c698d]' size={30}/>
+        </NavLink>
 
             <div onClick={handleChange} className='block md:hidden'>
                 {nav ? <AiOutlineClose className='cursor-pointer hover:text-red-600' size={30} />  : <AiOutlineMenu className='cursor-pointer hover:text-[#2c698d]' size={30} />
