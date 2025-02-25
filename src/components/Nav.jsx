@@ -4,10 +4,12 @@ import { NavLink } from 'react-router-dom'
 import './reset.css'
 import {AiOutlineShopping, AiOutlineMenu, AiOutlineClose} from 'react-icons/ai'
 import SideMenu from './SideMenu';
+import {useProductContext} from "../assets/context/ProductContext";
 
 function Nav() {
     const [nav, setNav] = useState(false);
     const [scrolledNav , setScrollNav] = useState(false);
+    const {carts} = useProductContext();
     
     function scrolled(){
             if(window.scrollY >= 20){
@@ -50,8 +52,12 @@ function Nav() {
 
             </li>
         </ul>
-        <div className='flex gap-4'>
-        <NavLink to="/Cart"><AiOutlineShopping className='cursor-pointer hover:text-[#2c698d]' size={30}/>
+        <div className='relative flex gap-4'>
+        <NavLink to="/Cart">
+        <AiOutlineShopping className='cursor-pointer hover:text-[#2c698d]' size={30}/>
+        <span className={carts.length >= 1 && "absolute -top-1 -right-[-40px] md:-right-1 bg-red-600 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full animate-fadeIn"}>
+            {carts.length >= 1 && carts.length}
+        </span>
         </NavLink>
 
             <div onClick={handleChange} className='block md:hidden'>

@@ -7,15 +7,14 @@ import ProductsCart from "../components/ProductsCart.jsx";
 
 export default function Cart(){
     const {carts, removeAllProd} = useProductContext();
+    
     const [quantities, setQuantities] = useState(
         carts.reduce((acc, item) => {
             acc[item.id] = 1;
             return acc;
         }, {})
     );
-    console.log(carts)
     
-
     const increment = (id) => {
         setQuantities((prev) => (
             {...prev, [id]: prev[id] + 1}
@@ -29,6 +28,7 @@ export default function Cart(){
         removeAllProd();
     }
     const total = carts.reduce((sum, item) => sum + item.price * quantities[item.id], 0).toFixed(2);
+    
 
     return(
         <div className="max-w-[1200px] mx-auto my-5 bg-white rounded-lg shadow-lg p-6">

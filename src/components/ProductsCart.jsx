@@ -3,7 +3,7 @@ import {useProductContext} from "../assets/context/ProductContext.jsx";
 
 export default function ProductsCart({title, price, image, product, increment, decrement, quantity, category}){
     const {removeFromCarts} = useProductContext();
-    const totalPrice = (product.price * quantity).toFixed(2);
+    const totalPrice = (price * quantity).toFixed(2);
     
     const handleClick = () => {
         removeFromCarts(product.id)
