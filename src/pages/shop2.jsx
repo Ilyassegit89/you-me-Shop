@@ -2,7 +2,6 @@ import React, { useEffect, useState, useReducer } from 'react';
 import axios from "axios"
 
 import {PiStarFourFill} from "react-icons/pi";
-//import getProducts from '../Data/api.js';
 import UniqueCategories from '../functions/UniqueCategories.js';
 import Products from '../components/ShoppingPage/Products.jsx'
 
