@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useRef, useEffect } from "react";
 //import { useFilterContext } from "../assets/context/Filter_context";
 import UniqueCategories from "../utils/helperFunc.js";
 import { DataContext } from "../assets/context/Products_context";
@@ -9,6 +9,11 @@ const Filters = () => {
   const { activeButton, data } = state;
 
   const [inpuText, setInput] = useState("");
+  const input = useRef();
+
+  useEffect(() => {
+    input.current.focus();
+  }, [data]);
 
   let categories = ["ALL"];
 
@@ -29,6 +34,7 @@ const Filters = () => {
         {/* search input */}
         <div className="py-4 form-control">
           <input
+            ref={input}
             type="text"
             name="text"
             placeholder="search"

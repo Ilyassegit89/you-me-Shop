@@ -7,9 +7,11 @@ import { ProductProvider } from "./assets/context/ProductContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <ProductProvider>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </ProductProvider>
+  <React.StrictMode>
+    <ProductProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ProductProvider>
+  </React.StrictMode>
 );
