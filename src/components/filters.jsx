@@ -19,6 +19,7 @@ const Filters = () => {
   const handleChange = (e) => {
     const text = e.target.value;
     setInput(text);
+
     dispatch({ type: "FILTER_PRODUCTS", payload: text });
   };
 
