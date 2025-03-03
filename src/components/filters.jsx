@@ -1,8 +1,6 @@
 import { useState, useContext, useRef, useEffect } from "react";
-//import { useFilterContext } from "../assets/context/Filter_context";
 import UniqueCategories from "../utils/helperFunc.js";
 import { DataContext } from "../assets/context/Products_context";
-//import {useFilterContext} from "../assets/context/Filter_context"
 
 const Filters = () => {
   const { state, dispatch } = useContext(DataContext);
