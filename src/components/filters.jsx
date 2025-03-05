@@ -1,30 +1,30 @@
 import { useState, useContext, useRef, useEffect } from "react";
 import UniqueCategories from "../utils/helperFunc.js";
-import { DataContext } from "../assets/context/Products_context";
+//import { DataContext } from "../assets/context/Products_context";
+import { useStore } from "../store/store.js";
 
 const Filters = () => {
-  const { state, dispatch } = useContext(DataContext);
-  const { activeButton, data } = state;
-
+  /* const { state, dispatch } = useContext(DataContext);
+  const { activeButton, data } = state; */
+  const { onFilter, products, valueActive, updateCategorie, allProducts } =
+    useStore();
   const [inpuText, setInput] = useState("");
-  const input = useRef();
 
   useEffect(() => {
-    input.current.focus();
-  }, [data]);
-
-  let categories = ["ALL"];
-
-  if (data != null) {
-    categories = UniqueCategories(data);
-  }
+    console.log("Component shop Rendered!");
+  });
 
   const handleChange = (e) => {
     const text = e.target.value;
     setInput(text);
-
-    dispatch({ type: "FILTER_PRODUCTS", payload: text });
+    onFilter(text);
   };
+
+  let categories = ["ALL"];
+
+  if (allProducts) {
+    categories = UniqueCategories(allProducts);
+  }
 
   return (
     <div className="pl-4">
@@ -32,7 +32,6 @@ const Filters = () => {
         {/* search input */}
         <div className="py-4 form-control">
           <input
-            ref={input}
             type="text"
             name="text"
             placeholder="search"
@@ -53,20 +52,14 @@ const Filters = () => {
                 key={index}
                 id={index}
                 onClick={(e) => {
-                  const value = e.target.textContent;
+                  const category = e.target.textContent;
                   const valueId = e.target.id;
-                  dispatch({
-                    type: "UPDATE_CATEGORY",
-                    payload: value,
-                    valueActive: valueId,
-                  });
-
-                  console.log(`${activeButton} = ${index}`);
+                  updateCategorie(category, valueId);
                 }}
                 name="category"
                 type="button"
                 className={
-                  activeButton == index
+                  valueActive == index
                     ? "px-2 underline text-gray-700 text-lg"
                     : "px-2 text-gray-200 text-lg"
                 }

@@ -10,7 +10,7 @@ function Shop() {
         <div className="grid md:grid-cols-[1fr_3fr] py-4">
           <Filters />
           <div>
-            <Sort />
+            {/*<Sort />*/}
             <ProductsList />
           </div>
         </div>

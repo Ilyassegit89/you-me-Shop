@@ -5,7 +5,7 @@ import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
 import Contact from "./pages/Contact";
 
-import { DataProvider } from "./assets/context/Products_context.jsx";
+//import { DataProvider } from "./assets/context/Products_context.jsx";
 
 import { Route, Routes } from "react-router-dom";
 
@@ -16,14 +16,7 @@ function App() {
       <div>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route
-            path="/Shop"
-            element={
-              <DataProvider>
-                <Shop />
-              </DataProvider>
-            }
-          />
+          <Route path="/Shop" element={<Shop />} />
 
           <Route path="/Cart" element={<Cart />} />
           <Route path="/Contact" element={<Contact />} />
